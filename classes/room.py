@@ -13,7 +13,9 @@ class Room:
     def add_song_to_room(self, song):
         self.songs.append(song)
 
-    def has_room_reached_capacity(self):
+    def number_of_guests_in_room(self, guest):
         room_capacity = 4
         if room_capacity == len(self.guests):
             return room_capacity
+        else:
+            self.check_in_guests(guest)

@@ -16,8 +16,8 @@ class TestRoom(unittest.TestCase):
     def test_room_has_name(self):
         self.assertEqual("Rock Room", self.room.name)
 
-    def test_check_num_of_guests_in_room(self):
-        self.assertEqual([], self.room.guests)
+    # def test_check_num_of_guests_in_room_starts_at_0(self):
+    #     self.assertEqual([], self.room.guests)
 
     def test_check_in_guests_to_room(self):
         self.room.check_in_guests(self.guest)
@@ -33,12 +33,16 @@ class TestRoom(unittest.TestCase):
         self.room.add_song_to_room(song)
         self.assertEqual([song], self.room.songs)
 
-    def test_check_if_room_reached_capacity(self):
+    def test_check_number_of_guests_in_room(self):
         self.room.check_in_guests(self.guest)
         self.room.check_in_guests(self.guest1)
         self.room.check_in_guests(self.guest2)
-        self.room.check_in_guests(self.guest3)
+        # self.room.check_in_guests(self.guest3)
         # Guests are checked in room.guests == 4
-        self.room.has_room_reached_capacity(self)
-        result = len(self.room.guests)
-        self.assertEqual(4, result)
+        guests = len(self.room.guests)
+        self.room.number_of_guests_in_room(self)
+        self.assertEqual(4, guests)
+
+        # Check the ho many guests are in the room.
+
+        # if the number of guests == value stored in max_capacity
