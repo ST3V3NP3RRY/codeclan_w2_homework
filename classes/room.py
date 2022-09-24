@@ -38,9 +38,3 @@ class Room:
             return "Access granted"
 
         # Can you add a guest inside this function and still have the test say "Access granted."
-
-        # num_of_guests = len(self.guests)
-        # if num_of_guests == capacity:
-        #     return "Room Full"
-        # else:
-        #     return "Access granted"
