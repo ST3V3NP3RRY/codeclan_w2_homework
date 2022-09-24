@@ -12,15 +12,11 @@ class Room:
     def check_out_guests(self, guest):
         self.guests.remove(guest)
 
+    def guests_in_room(self):
+        return self.guests
+
     def add_song_to_room(self, song):
         self.songs.append(song)
-
-    def number_of_guests_in_room(self, guest):
-        room_capacity = 4
-        if room_capacity == len(self.guests):
-            return room_capacity
-        else:
-            self.check_in_guests(guest)
 
     def find_song_by_title(self, title):
         for song in self.songs:
@@ -30,6 +26,21 @@ class Room:
     def customer_can_afford_fee(self, guest):
         return guest.money >= self.entrance_fee
 
-    def is_favourite_song_in_room(self, favourite_song, song):
+    def is_guest_favourite_song_in_room(self, favourite_song, song):
         if favourite_song == song.title:
             return "Woo Hoo!"
+
+    def check_room_capacity(self, capacity, guest):
+        if capacity == len(self.guests):
+            return "Room Full"
+        if capacity != len(self.guests):
+            # self.check_in_guests(guest)
+            return "Access granted"
+
+        # Can you add a guest inside this function and still have the test say "Access granted."
+
+        # num_of_guests = len(self.guests)
+        # if num_of_guests == capacity:
+        #     return "Room Full"
+        # else:
+        #     return "Access granted"
